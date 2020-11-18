@@ -28,10 +28,16 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectPageIndex]['title']),
       ),
+      drawer: Drawer(
+        child: Text('The Drawer'),
+      ),
       body: _pages[_selectPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).accentColor,
+        currentIndex: _selectPageIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
