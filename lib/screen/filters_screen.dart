@@ -53,6 +53,19 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   _lactoseFree = newValue;
                 });
               }),
+              _buildSwitchListTile(
+                  'Vegetarian', "Only include vegetarian", _vegetarian,
+                  (newValue) {
+                setState(() {
+                  _vegetarian = newValue;
+                });
+              }),
+              _buildSwitchListTile('Vegan', "Only include vegan", _vegan,
+                  (newValue) {
+                setState(() {
+                  _vegan = newValue;
+                });
+              }),
             ]),
           ),
         ]),
