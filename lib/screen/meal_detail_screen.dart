@@ -33,30 +33,41 @@ class MealDetailScreen extends StatelessWidget {
         title: Text('${selectedMeal.title}'),
         //title: Text('$mealId'),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            height: 300,
-            width: double.infinity,
-            child: Image.network(
-              selectedMeal.imageUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
-          buildSectionTitle(context, "Ingredients"),
-          buildContainer(
-            ListView.builder(
-              itemBuilder: (ctx, index) => Card(
-                color: Theme.of(context).accentColor,
-                child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Text(selectedMeal.ingredients[index])),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                selectedMeal.imageUrl,
+                fit: BoxFit.cover,
               ),
-              itemCount: selectedMeal.ingredients.length,
             ),
-          ),
-          buildSectionTitle(context, "Steps"),
-        ],
+            buildSectionTitle(context, "Ingredients"),
+            buildContainer(
+              ListView.builder(
+                itemBuilder: (ctx, index) => Card(
+                  color: Theme.of(context).accentColor,
+                  child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      child: Text(selectedMeal.ingredients[index])),
+                ),
+                itemCount: selectedMeal.ingredients.length,
+              ),
+            ),
+            buildSectionTitle(context, "Steps"),
+            buildContainer(ListView.builder(
+                itemBuilder: (ctx, index) => ListTile(
+                      leading: CircleAvatar(
+                        child: Text('# ${(index + 1)}'),
+                      ),
+                      title: Text(selectedMeal.steps[index]),
+                    ),
+                itemCount: selectedMeal.steps.length))
+          ],
+        ),
       ),
     );
   }
