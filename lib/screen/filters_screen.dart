@@ -14,6 +14,15 @@ class _FiltersScreenState extends State<FiltersScreen> {
   bool _vegan = false;
   bool _lactoseFree = false;
 
+  Widget _buildSwitchListTile(String title, String description,
+      bool currentValue, Function updateValue) {
+    return SwitchListTile(
+        title: Text(title),
+        value: currentValue,
+        subtitle: Text(description),
+        onChanged: updateValue);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +39,20 @@ class _FiltersScreenState extends State<FiltersScreen> {
           ),
           Expanded(
             child: ListView(children: <Widget>[
-              SwitchListTile(
-                  title: Text('Gluten-free'),
-                  value: _glutenFree,
-                  subtitle: Text("Only include gluten-free meals."),
-                  onChanged: (newValue) {
-                    setState(() {
-                      _glutenFree = newValue;
-                    });
-                  }),
+              _buildSwitchListTile(
+                  'Gluten-free', "Only include gluten free", _glutenFree,
+                  (newValue) {
+                setState(() {
+                  _glutenFree = newValue;
+                });
+              }),
+              _buildSwitchListTile(
+                  'Lactose-free', "Only include lactose free", _lactoseFree,
+                  (newValue) {
+                setState(() {
+                  _lactoseFree = newValue;
+                });
+              }),
             ]),
           ),
         ]),
