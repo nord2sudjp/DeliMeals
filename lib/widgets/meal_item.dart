@@ -22,14 +22,15 @@ class MealItem extends StatelessWidget {
     return InkWell(
       onTap: selectMeal,
       child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 4,
-          margin: EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              Stack(children: <Widget>[
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 4,
+        margin: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
@@ -59,10 +60,30 @@ class MealItem extends StatelessWidget {
                       overflow: TextOverflow.fade,
                     ),
                   ),
-                )
-              ]),
-            ],
-          )),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.schedule,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
