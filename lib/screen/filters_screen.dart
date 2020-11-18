@@ -4,8 +4,13 @@ class FiltersScreen extends StatelessWidget {
   static const routeName = '/filters';
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Filter'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your Filter'),
+      ),
+      body: Center(
+        child: Text('Filter'),
+      ),
     );
   }
 }
