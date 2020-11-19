@@ -39,9 +39,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   'gluten': _glutenFree,
                   'lactose': _lactoseFree,
                   'vegan': _vegan,
-                  'vegatarian': _vegetarian,
+                  'vegetarian': _vegetarian,
                 };
-                widget.saveFilters();
+                widget.saveFilters(selectedFilters);
               })
         ],
       ),
