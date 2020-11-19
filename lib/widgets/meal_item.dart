@@ -9,16 +9,17 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeItem;
+  // final Function removeItem;
 
-  MealItem(
-      {this.id,
-      this.title,
-      this.imageUrl,
-      this.duration,
-      this.complexity,
-      this.affordability,
-      this.removeItem});
+  MealItem({
+    this.id,
+    this.title,
+    this.imageUrl,
+    this.duration,
+    this.complexity,
+    this.affordability,
+    //this.removeItem
+  });
 
   void selectMeal(BuildContext context) {
     Navigator.of(context)
@@ -29,7 +30,10 @@ class MealItem extends StatelessWidget {
         .then(
           (result) => {
             //print(result);
-            if (result != null) {removeItem(result)}
+            if (result != null)
+              {
+                //removeItem(result)
+              }
           },
         );
   }
