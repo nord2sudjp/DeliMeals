@@ -1,3 +1,4 @@
+import 'package:DeliMeals/screen/categories_screen.dart';
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../widgets/meal_item.dart';
@@ -5,6 +6,10 @@ import '../models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
+
+  List<Meal> availableMeals;
+
+  CategoryMealsScreen(this.availableMeals);
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
@@ -28,7 +33,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
           ModalRoute.of(context).settings.arguments as Map<String, String>;
       categoryTitle = routeArgs['title'];
       final id = routeArgs['id'];
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(id);
       }).toList();
       _isFirstTime = true;
