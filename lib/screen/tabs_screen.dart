@@ -40,7 +40,7 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectPageIndex]['title']),
       ),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(), // Drawerを使っているからタイトルが２重になってしまう。
       body: _pages[_selectPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
